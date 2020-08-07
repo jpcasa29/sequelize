@@ -1,0 +1,25 @@
+<%- include('header') -%>
+
+<br><br>
+
+<h1><%= pelicula.title %></h1>
+    
+<h3>Su Rating es de: <%= pelicula.rating %></h3>        
+
+<h3>Awards: <%= pelicula.awards %></h3>
+<h3>Tiene una duración de: <%= pelicula.length %></h3>
+
+<br>
+<h3>Actores</h3>
+<% for(let i=0; i< pelicula.actores.length; i++) { %>
+<h4><%= pelicula.actores[i].first_name %> <%= pelicula.actores[i].last_name %></h4>
+<% } %>
+<br>
+<br>
+<h2>Vea el Trailer Oficial</h2>
+
+
+<iframe width="560" height="315" src="<%= pelicula.trailer %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><br><br>
+<%- include('footer') -%>

@@ -1,0 +1,42 @@
+<%- include('header') -%>
+
+<br><br>
+    <h3>Editar la Película <%= pelicula.title %></h3>
+    <form action="/peliculas/edit/<%= pelicula.id %>?_method=put" method="POST">
+        <label for="title">Titulo</label>
+        <input type="text" name="title" value="<%= pelicula.title %>"><br>
+        <label for="rating">Rating</label>
+        <input type="number" name="rating" value="<%= pelicula.rating %>"><br>
+        <label for="awards">Premios</label>
+        <input type="number" name="awards" value="<%= pelicula.awards %>"><br>
+        <label for="length">Duración</label>
+        <input type="number" name="length" value="<%= pelicula.length %>"><br>
+        <label for="genero">Género</label>
+        <select name="genero" id="genero">
+            <% for(let i=0; i< generos.length;i++) { %>
+                <% if(pelicula.genre_id == generos[i].id) { %>
+                <option value="<%= generos[i].id %>" selected><%= generos[i].name %></option>
+                <% } else { %>
+                <option value="<%= generos[i].id %>"><%= generos[i].name %></option>
+                <% } %>
+            <% } %>
+        </select><br>
+        <label for="status">Estado</label>
+        <select name="status" id="status">
+            <% if(pelicula.status == 1) { %>
+            <option value="1" selected>Activa</option>
+            <option value="0">Inactiva</option>
+            <% } else { %>
+            <option value="1">Activa</option>
+            <option value="0" selected>Inactiva</option>
+            <% } %>
+        </select><br>
+        <label for="trailer">Trailer Oficial</label>
+        <input type="text" name="trailer" value="<%= pelicula.trailer %>"><br>
+        <button class="detalle" type="submit">Modificar</button>
+    </form>
+
+    
+
+    <br><br><br>
+    <%- include('footer') -%>

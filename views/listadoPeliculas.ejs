@@ -1,0 +1,33 @@
+<%- include('header') -%>
+<br>
+<h4>Listado de Peliculas en la Base</h4>
+<br>
+
+<%- include('letras') -%>
+
+<br>
+<% if(peliculas == "") {%>
+    <h4>No tenemos películas con letra seleccionada</h4>
+    <% } else { %>
+    
+    <ul>
+    <% for(let i=0; i<peliculas.length; i++) {%>
+    <li class="listado">
+        <h3><%= peliculas[i].title %></h3>
+        <a href="/peliculas/detalle/<%= peliculas[i].id %>"><button>Ver Detalle</button></a>
+        <a href="/peliculas/edit/<%= peliculas[i].id %>"><button>Editar</button></a>
+        
+        <% if(peliculas[i].status == 1) { %>
+        <form style="display: inline-block;" action="/peliculas/delete/<%= peliculas[i].id %>?_method=put" method="POST"><button type="submit">Eliminar</button></form>
+        <% } else { %>
+        <form style="display: inline-block;" action="/peliculas/recuperar/<%= peliculas[i].id %>" method="POST"><button type="submit">Recuperar</button></form>
+        <form style="display: inline-block;" action="/peliculas/deletesave/<%= peliculas[i].id %>?_method=delete" method="POST"><button type="submit">Eliminar Definitivo</button></form>
+        <% } %>
+    
+    </li>
+        
+    <% } %>
+</ul>
+<% } %>
+<br><br>
+<%- include('footer') -%>

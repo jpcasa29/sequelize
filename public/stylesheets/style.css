@@ -1,0 +1,53 @@
+
+
+body {
+  padding-left: 10px;
+  padding-right: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+nav div div a.nav-link{
+  
+  margin-left: 20px;
+  
+  
+}
+nav div div a.nav-link:hover{
+  background-color: silver;
+  border-radius: 5px;
+  margin-left: 20px;
+  
+  
+}
+ul li.listado {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+div.letras {
+  text-align: center;
+}
+div.letras a{
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 10px;
+  
+  margin: 5px;
+}
+
+label {
+  width: 150px;
+  text-align: center;
+}
+input {
+  width: 300px;
+}
+select {
+  width: 300px;
+}
+button.detalle {
+  width: 455px;
+}
+button {
+  width: 150px;
+}
