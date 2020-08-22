@@ -1,0 +1,24 @@
+<%- include('header') -%>
+<br>
+<h4>Listado de Actores Eliminados de la Base</h4>
+<br>
+
+<ul>
+    <% for(let i=0; i<actores.length; i++) {%>
+    <li class="listado">
+        <h3><%= actores[i].first_name %> <%= actores[i].last_name %></h3>
+        <a href="/actores/detalle/<%= actores[i].id %>"><button>Ver Detalle</button></a>
+        <a href="/actores/edit/<%= actores[i].id %>"><button>Editar</button></a>
+        
+        <% if(actores[i].status == 1) { %>
+        <form style="display: inline-block;" action="/actores/delete/<%= actores[i].id %>?_method=put" method="POST"><button type="submit">Eliminar</button></form>
+        <% } else { %>
+        <form style="display: inline-block;" action="/actores/recuperar/<%= actores[i].id %>" method="POST"><button type="submit">Recuperar</button></form>
+        <form style="display: inline-block;" action="/actores/deletesave/<%= actores[i].id %>?_method=delete" method="POST"><button type="submit">Eliminar Definitivo</button></form>
+        <% } %>
+    
+    </li>
+    <% } %>
+</ul>
+<br><br><br><br><br><br><br><br><br><br>
+<%- include('footer') -%>

@@ -1,9 +1,16 @@
 <%- include('header') -%>
 <br>
-<h4>Listado de Peliculas en la Base</h4>
+<h3 class="titulos">Listado de Peliculas en la Base</h3>
 <br>
 
-<%- include('letras') -%>
+<div class="botones">
+    <a class="" href="/peliculas/crear">Crear Película</a>
+    <a class="" href="/peliculas/eliminadas">Recuperar Eliminadas</a>
+    <br><br>
+</div>
+
+<br>
+<%- include('letrasP') -%>
 
 <br>
 <% if(peliculas == "") {%>

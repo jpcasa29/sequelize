@@ -1,0 +1,19 @@
+<%- include('header') -%>
+
+<br><br>
+
+<h1><%= actor.first_name %> <%= actor.last_name %></h1>
+    
+<h3>Su Rating es: <%= actor.rating %></h3>        
+
+
+<br>
+<h3>Peliculas</h3>
+<% for(let i=0; i< actor.peliculas.length; i++) { %>
+<h4><%= actor.peliculas[i].title %></h4>
+<% } %>
+<br>
+<br>
+<br><br><br><br>
+<br><br><br>
+<%- include('footer') -%>

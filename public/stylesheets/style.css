@@ -1,9 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  --yellow: #EAC926;
+  --dark-blue: #03264C;
+  --light-blue: #1259c3;
+  --gray: #666666;
+  --light-gray: #ebebeb;
+  --green: #39b54a;
+  --base-font-family: 'Roboto', sans-serif;
+  --font-monts: 'Montserrat', sans-serif;
+  --compensados1: #FC6E44;
+  --compensados2: #44D2FC;
+  --triada3: #44FC79;
+}
 
 body {
   padding-left: 10px;
   padding-right: 10px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: var(--font-monts);
+  text-align: center;
+  
+}
+
+.titulos {
+  background-color: var(--light-gray);
+  font-weight: bold;
+}
+
+img.imgHome {
+  width: 25%;
+}
+div.background {
+  
 }
 
 nav div div a.nav-link{
@@ -24,15 +52,37 @@ ul li.listado {
   margin-bottom: 20px;
 }
 
+div.botones {
+  text-align: center;
+  border-bottom: 3px solid var(--light-blue);
+}
+div.botones a {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--light-blue);
+  color: white;
+}
+div.botones a:hover {
+  background-color: var(--dark-blue);
+  color: white;
+  text-decoration: none;
+}
+
 div.letras {
   text-align: center;
 }
 div.letras a{
-  background-color: lightblue;
+  background-color: var(--light-blue);
   border-radius: 5px;
   padding: 10px;
-  
+  color: white;
   margin: 5px;
+}
+div.letras a:hover {
+  background-color: var(--dark-blue);
+  color: white;
+  text-decoration: none;
 }
 
 label {

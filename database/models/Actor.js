@@ -11,7 +11,13 @@ module.exports=function(sequelize, dataTypes){
         },
         last_name: {
             type: dataTypes.STRING
-        }
+        },
+        rating: {
+            type: dataTypes.DECIMAL
+        },
+        status: {
+            type: dataTypes.TINYINT(5)
+        },
     };
     let config = {
         tableName: "actors",

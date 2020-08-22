@@ -1,0 +1,17 @@
+<%- include('header') -%>
+
+<br><br>
+    <h1>Crear un Actor nuevo!</h1>
+    <form action="/actores/crear" method="POST">
+        <label for="first_name">Nombre</label>
+        <input type="text" name="first_name"><br>
+        <label for="last_name">Apellido</label>
+        <input type="text" name="last_name"><br>
+        <label for="rating">Rating</label>
+        <input type="number" name="rating"><br>
+        <button class="detalle" type="submit">Crear</button>
+    </form>
+
+
+    <br><br><br>
+    <%- include('footer') -%>

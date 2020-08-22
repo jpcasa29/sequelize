@@ -1,0 +1,40 @@
+<%- include('header') -%>
+
+<br><br>
+    <h3>Editar el Actor <%= actor.first_name %> <%= actor.first_name %></h3>
+    <form action="/actores/edit/<%= actor.id %>?_method=put" method="POST">
+        <label for="first_name">Nombre</label>
+        <input type="text" name="first_name" value="<%= actor.first_name %>"><br>
+        <label for="last_name">Nombre</label>
+        <input type="text" name="last_name" value="<%= actor.last_name %>"><br>
+        <label for="rating">Rating</label>
+        <input type="number" name="rating" value="<%= actor.rating %>"><br>
+        
+        <label for="pelicula">Peliculas</label>
+        <select name="pelicula" id="pelicula">
+            <% for(let i=0; i< peliculas.length;i++) { %>
+                <% if(actor.actor_id == peliculas[i].id) { %>
+                <option value="<%= peliculas[i].id %>" selected><%= peliculas[i].title %></option>
+                <% } else { %>
+                <option value="<%= peliculas[i].id %>"><%= peliculas[i].title %></option>
+                <% } %>
+            <% } %>
+        </select><br>
+        <label for="status">Estado</label>
+        <select name="status" id="status">
+            <% if(actor.status == 1) { %>
+            <option value="1" selected>Activa</option>
+            <option value="0">Inactiva</option>
+            <% } else { %>
+            <option value="1">Activa</option>
+            <option value="0" selected>Inactiva</option>
+            <% } %>
+        </select><br>
+        
+        <button class="detalle" type="submit">Modificar</button>
+    </form>
+
+    
+
+    <br><br><br>
+    <%- include('footer') -%>
