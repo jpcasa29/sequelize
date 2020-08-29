@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 let db = require('../database/models');
 const { Op } = require("sequelize");
-const Movie = require('../database/models/Movie');
+
 
 const peliculasController = {
     all: function(req, res) {
