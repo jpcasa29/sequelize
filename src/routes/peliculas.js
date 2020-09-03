@@ -1,7 +1,22 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+const multer = require('multer');
 let db = require('../database/models')
 let peliculasController = require('../controllers/peliculasController')
+
+var storage = multer.diskStorage({
+    destination:function (req,file,cb){
+        cb(null, 'public/images/movies/')
+        },
+        filename: function(req,file,cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        }
+    });
+    
+    var upload = multer({storage:storage});
+    
+
 
 
 /* GET home page. */
@@ -11,7 +26,7 @@ router.get('/filter/:letra', peliculasController.filter)
 
 router.get('/crear', peliculasController.crear)
 
-router.post('/crear', peliculasController.crearAdd)
+router.post('/crear', upload.any(), peliculasController.crearAdd)
 
 router.get('/detalle/:id', peliculasController.detalle)
 

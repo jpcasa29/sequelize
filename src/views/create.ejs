@@ -2,7 +2,7 @@
 
 <br><br>
     <h1>Crear una peli</h1>
-    <form action="/peliculas/crear" method="POST">
+    <form action="/peliculas/crear" method="POST" enctype="multipart/form-data">
         <label for="title">Titulo</label>
         <input type="text" name="title"><br>
         <label for="rating">Rating</label>
@@ -19,6 +19,8 @@
             <option value="<%= generos[i].id %>"><%= generos[i].name %></option>
             <% } %>
         </select><br>
+        <label for="images">Imagenes</label>
+        <input type="file" name="images" multiple><br>
         <label for="trailer">Trailer Oficial</label>
         <input type="text" name="trailer"><br>
         <button class="detalle" type="submit">Crear</button>

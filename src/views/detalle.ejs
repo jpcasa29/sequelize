@@ -15,6 +15,18 @@
 <h4><%= pelicula.actores[i].first_name %> <%= pelicula.actores[i].last_name %></h4>
 <% } %>
 <br>
+<h3>Fotos</h3>
+<div class="carroImg">
+    <% for(let i=0; i< imagenes.length; i++) { %>
+        <a href="" class="imagesDetalle"><img src="/images/movies/<%= imagenes[i].image %>" alt=""></a>
+        
+    <% } %>
+</div>
+
+<div class="imagenGrande">
+<img id="imagen" src="/images/movies/<%= imagenes[0].image %>" alt="">
+</div>
+<br>
 <br>
 <h2>Vea el Trailer Oficial</h2>
 
@@ -23,3 +35,4 @@
 
 <br><br><br>
 <%- include('footer') -%>
+<script src="/javascripts/script.js"></script>

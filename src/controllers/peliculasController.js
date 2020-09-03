@@ -53,6 +53,7 @@ const peliculasController = {
         
     },
     crearAdd: function(req, res) {
+      
       db.Movie.create({
         title: req.body.title,
         rating: req.body.rating,
@@ -64,10 +65,22 @@ const peliculasController = {
         genre_id: req.body.genero
       })
       .then(function(result){
+        
+        for(let i=0; i<req.files.length; i++){
+          db.MovieImage.create({
+            movies_id: result.id,
+            image: req.files[i].filename
+          }).then(function(response){
+            console.log(response)
+          })
+        }
+        
+
         res.redirect('/peliculas')
       })
     },
     detalle: function(req, res) {
+      let imagenes = [];
       db.Movie.findByPk(req.params.id, {
         include: [
           {association: "actores"},
@@ -75,10 +88,26 @@ const peliculasController = {
           ],
       })
         .then(function(result){
+          db.MovieImage.findAll({
+            where: {
+              movies_id: result.id,
+              }
+            })
+            .then(function(response) {
+              for(let i=0; i<response.length; i++){
+                imagenes.push(response[i].dataValues)
+              }
+              //imagenes = response[0].dataValues
+              console.log(imagenes)
+              return res.render('detalle', {
+                pelicula: result,
+                imagenes: imagenes
+              })
+              
+            })
+            
           //res.send(result.actores)
-          res.render('detalle', {
-            pelicula: result
-          })
+          
      })
     },
     edit: function(req, res) {
@@ -129,15 +158,25 @@ const peliculasController = {
         })
     },
     deleteSave: function(req, res) {
-      db.Movie.destroy({
+      db.MovieImage.destroy({
         where: {
-        id: req.params.id
-      }
+          movies_id: req.params.id
+        }
       })
-        .then(function(result){
-
-          res.redirect('/peliculas')
+      .then(function(result){
+        db.Movie.destroy({
+          where: {
+          id: req.params.id
+        }
         })
+          .then(function(response){
+          console.log(response)
+          })
+          res.redirect('/peliculas')
+      })
+      
+          
+        
     },
     verEliminadas: function(req, res) {
       db.Movie.findAll({

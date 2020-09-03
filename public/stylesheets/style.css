@@ -120,3 +120,24 @@ a#detalle {
   border-radius: 5px;
   margin-left: 10px;
 }
+
+.carroImg {
+  width: 120px;
+  display: inline-block;
+
+}
+.carroImg img {
+  width: 100px;
+  border: 2px solid grey;
+  margin: 5px;
+  
+}
+div.imagenGrande {
+  display: inline-block;
+  border: 2px solid grey;
+}
+
+img#imagen {
+  width: 500px;
+  height: 500px;
+}

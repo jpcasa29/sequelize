@@ -4,9 +4,12 @@ function elemento(elemento) {
 
 window.addEventListener('load', function() {
     let buscador = elemento("buscador");
-    
     let listado = elemento('listado')
-    
+    let imagen = elemento('imagen')
+
+    let images = document.querySelectorAll('a.imagesDetalle')
+    //let images = elemento('image')
+    console.log(images)
     let peliculas = []
 
     fetch('http://localhost:3000/api/buscador')
@@ -41,6 +44,18 @@ window.addEventListener('load', function() {
         //console.log(dataDecode)
     })
 
+    
+    for(let i=0; i < images.length; i++) {
+
+        images[i].addEventListener('click', function(e) {
+            e.preventDefault()
+            
+            imagen.setAttribute('src', images[i].children[0].src)
+            console.log('hola' + i)
+            
+        })
+
+    }
     
 
     
